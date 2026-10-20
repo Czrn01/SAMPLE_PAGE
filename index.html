@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donny's Workout and Healthiness</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brandDark: '#0b0b0b',
+                        brandRed: '#dc2626',
+                        brandCream: '#f7f5ef',
+                        cardBg: '#141414',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .page-view {
+            display: none;
+        }
+        .page-view.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-brandDark text-white font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header & Navigation -->
+    <header class="w-full max-w-7xl mx-auto px-6 py-5 flex items-center justify-between sticky top-0 bg-brandDark/90 backdrop-blur-md z-50">
+        <!-- Logo -->
+        <a href="#home" onclick="navigateTo('home'); return false;" class="font-black tracking-wider text-sm sm:text-base md:text-lg flex items-center gap-1">
+            DONNY'S WORKOUT AND HEALTHINESS<span class="text-brandRed text-xl leading-none">.</span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+            <a href="#home" id="nav-home" onclick="navigateTo('home'); return false;" class="nav-btn text-brandRed font-semibold transition">Home</a>
+            <a href="#menu" id="nav-menu" onclick="navigateTo('menu'); return false;" class="nav-btn text-gray-400 hover:text-white transition">Menu</a>
+            <a href="#workouts" id="nav-workouts" onclick="navigateTo('workouts'); return false;" class="nav-btn text-gray-400 hover:text-white transition">Workouts</a>
+            <a href="#about" id="nav-about" onclick="navigateTo('about'); return false;" class="nav-btn text-gray-400 hover:text-white transition">About</a>
+            <a href="#contact" id="nav-contact" onclick="navigateTo('contact'); return false;" class="nav-btn text-gray-400 hover:text-white transition">Contact</a>
+        </nav>
+
+        <!-- Right Action Button -->
+        <div class="flex items-center gap-3">
+            <a href="#menu" onclick="navigateTo('menu'); return false;" class="bg-brandRed hover:bg-red-700 text-white text-sm font-semibold px-5 py-2.5 rounded-md transition shadow-md">
+                Order now
+            </a>
+        </div>
+    </header>
+
+    <!-- Content Views Container -->
+    <div id="content-container" class="flex-grow">
+        
+        <!-- ================= HOME PAGE VIEW ================= -->
+        <div id="page-home" class="page-view active">
+            <!-- Hero Section -->
+            <main class="w-full max-w-7xl mx-auto px-6 py-10 md:py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Left Text Content -->
+                <div class="flex flex-col items-start space-y-6">
+                    <span class="text-brandRed text-xs sm:text-sm font-bold tracking-widest uppercase">
+                        Workout and Healthy Kitchen
+                    </span>
+                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-none uppercase">
+                        Train hard.<br>Eat clean.
+                    </h1>
+                    <p class="text-gray-400 text-base sm:text-lg max-w-md">
+                        High-protein meals and a gym floor, under one roof.
+                    </p>
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#menu" onclick="navigateTo('menu'); return false;" class="bg-brandRed hover:bg-red-700 text-white font-medium px-6 py-3 rounded-md transition shadow-md text-sm">
+                            Order now
+                        </a>
+                        <a href="#menu" onclick="navigateTo('menu'); return false;" class="border border-gray-600 hover:border-white text-white font-medium px-6 py-3 rounded-md transition text-sm">
+                            View menu
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Right Image Grid -->
+                <div class="w-full relative rounded-xl overflow-hidden shadow-2xl border border-gray-800 bg-neutral-900 aspect-[16/10]">
+                    <img src="https://placehold.co/800x500/1a1a1a/cccccc?text=Gym+Equipment+&+Healthy+Food+Spread" 
+                         onerror="this.src='https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80'"
+                         alt="Workout and healthy food spread" 
+                         class="w-full h-full object-cover">
+                </div>
+            </main>
+
+            <!-- Best Sellers Section -->
+            <section class="w-full bg-brandCream text-neutral-900 py-16 px-6">
+                <div class="max-w-7xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="flex items-center justify-between mb-10">
+                        <h2 class="text-2xl sm:text-3xl font-black tracking-wide uppercase">Best Sellers</h2>
+                        <a href="#menu" onclick="navigateTo('menu'); return false;" class="text-brandRed hover:text-red-700 text-sm font-semibold transition">See full menu</a>
+                    </div>
+
+                    <!-- Product Cards Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        
+                        <!-- Card 1: French Toasts -->
+                        <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-neutral-200 flex flex-col justify-between p-4">
+                            <div class="rounded-lg overflow-hidden h-48 bg-neutral-100 mb-4">
+                                <img src="https://placehold.co/400x300/e5e5e5/333333?text=French+Toasts" 
+                                     onerror="this.src='https://images.unsplash.com/photo-1484723091739-30a097e8f92f?auto=format&fit=crop&w=600&q=80'"
+                                     alt="French Toasts" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-neutral-900 mb-2">French Toasts</h3>
+                                <div class="flex items-center justify-between">
+                                    <span class="font-bold text-neutral-900">₱160.00</span>
+                                    <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-md">16g protein</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Rib-eye Steak -->
+                        <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-neutral-200 flex flex-col justify-between p-4">
+                            <div class="rounded-lg overflow-hidden h-48 bg-neutral-100 mb-4">
+                                <img src="https://placehold.co/400x300/e5e5e5/333333?text=Rib-eye+Steak" 
+                                     onerror="this.src='https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80'"
+                                     alt="Rib-eye Steak" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-neutral-900 mb-2">Rib-eye Steak</h3>
+                                <div class="flex items-center justify-between">
+                                    <span class="font-bold text-neutral-900">₱1,235.00</span>
+                                    <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-md">55g protein</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Special Shrimp -->
+                        <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-neutral-200 flex flex-col justify-between p-4">
+                            <div class="rounded-lg overflow-hidden h-48 bg-neutral-100 mb-4">
+                                <img src="https://placehold.co/400x300/e5e5e5/333333?text=Special+Shrimp" 
+                                     onerror="this.src='https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80'"
+                                     alt="Special Shrimp" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-neutral-900 mb-2">Special Shrimp</h3>
+                                <div class="flex items-center justify-between">
+                                    <span class="font-bold text-neutral-900">₱310.00</span>
+                                    <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-md">35g protein</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bottom Features Cards Section -->
+            <section class="w-full max-w-7xl mx-auto px-6 py-16">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Feature Card 1 -->
+                    <div class="bg-cardBg border border-neutral-800 rounded-xl p-8 flex flex-col justify-between h-44 hover:border-neutral-700 transition cursor-pointer" onclick="navigateTo('workouts')">
+                        <div class="text-brandRed text-2xl">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold tracking-wider text-base uppercase mb-1">Day Pass</h3>
+                            <p class="text-gray-400 text-sm">Walk in and train</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature Card 2 -->
+                    <div class="bg-cardBg border border-neutral-800 rounded-xl p-8 flex flex-col justify-between h-44 hover:border-neutral-700 transition cursor-pointer" onclick="navigateTo('workouts')">
+                        <div class="text-brandRed text-2xl">
+                            <i class="fa-regular fa-calendar-days"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold tracking-wider text-base uppercase mb-1">Monthly</h3>
+                            <p class="text-gray-400 text-sm">Unlimited access</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature Card 3 -->
+                    <div class="bg-cardBg border border-neutral-800 rounded-xl p-8 flex flex-col justify-between h-44 hover:border-neutral-700 transition cursor-pointer" onclick="navigateTo('workouts')">
+                        <div class="text-brandRed text-2xl">
+                            <i class="fa-regular fa-user"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold tracking-wider text-base uppercase mb-1">Coaching</h3>
+                            <p class="text-gray-400 text-sm">One-on-one sessions</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= MENU PAGE PLACEHOLDER ================= -->
+        <div id="page-menu" class="page-view py-16 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-8 flex items-center text-sm text-gray-400">
+                    <button onclick="navigateTo('home')" class="hover:text-white transition">Home</button>
+                    <span class="mx-2">/</span>
+                    <span class="text-brandRed font-medium">Menu</span>
+                </div>
+                
+                <h1 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mb-4">Menu Page</h1>
+                <p class="text-gray-400 max-w-xl mb-12">
+                    Discover our full line-up of high-protein, clean-eating meals engineered to fuel your body and complement your workouts.
+                </p>
+
+                <div class="bg-cardBg border border-dashed border-neutral-800 rounded-2xl p-12 text-center flex flex-col items-center justify-center min-h-[300px]">
+                    <div class="w-16 h-16 rounded-full bg-neutral-900 flex items-center justify-center text-brandRed text-2xl mb-4">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Menu Content Coming Soon</h3>
+                    <p class="text-gray-400 max-w-md mb-6">Welcome to the Menu Page! Full macro breakdown and online ordering will be available here.</p>
+                    <button onclick="navigateTo('home')" class="bg-brandRed hover:bg-red-700 text-white font-medium px-6 py-2.5 rounded-md text-sm transition">
+                        Return to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= WORKOUTS PAGE PLACEHOLDER ================= -->
+        <div id="page-workouts" class="page-view py-16 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-8 flex items-center text-sm text-gray-400">
+                    <button onclick="navigateTo('home')" class="hover:text-white transition">Home</button>
+                    <span class="mx-2">/</span>
+                    <span class="text-brandRed font-medium">Workouts</span>
+                </div>
+
+                <h1 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mb-4">Workouts Page</h1>
+                <p class="text-gray-400 max-w-xl mb-12">
+                    Explore gym access options, personal coaching programs, and trainer schedules tailored for all fitness levels.
+                </p>
+
+                <div class="bg-cardBg border border-dashed border-neutral-800 rounded-2xl p-12 text-center flex flex-col items-center justify-center min-h-[300px]">
+                    <div class="w-16 h-16 rounded-full bg-neutral-900 flex items-center justify-center text-brandRed text-2xl mb-4">
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Workout Schedules & Plans Coming Soon</h3>
+                    <p class="text-gray-400 max-w-md mb-6">Welcome to the Workouts Page! Day passes, monthly memberships, and coaching booking details will be listed here.</p>
+                    <button onclick="navigateTo('home')" class="bg-brandRed hover:bg-red-700 text-white font-medium px-6 py-2.5 rounded-md text-sm transition">
+                        Return to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= ABOUT PAGE PLACEHOLDER ================= -->
+        <div id="page-about" class="page-view py-16 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-8 flex items-center text-sm text-gray-400">
+                    <button onclick="navigateTo('home')" class="hover:text-white transition">Home</button>
+                    <span class="mx-2">/</span>
+                    <span class="text-brandRed font-medium">About</span>
+                </div>
+
+                <h1 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mb-4">About Us Page</h1>
+                <p class="text-gray-400 max-w-xl mb-12">
+                    Combining a top-tier workout experience with a high-protein healthy kitchen under one single roof.
+                </p>
+
+                <div class="bg-cardBg border border-dashed border-neutral-800 rounded-2xl p-12 text-center flex flex-col items-center justify-center min-h-[300px]">
+                    <div class="w-16 h-16 rounded-full bg-neutral-900 flex items-center justify-center text-brandRed text-2xl mb-4">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">About Donny's Workout & Healthiness</h3>
+                    <p class="text-gray-400 max-w-md mb-6">Welcome to the About Page! Read more about our story, mission, and kitchen philosophy soon.</p>
+                    <button onclick="navigateTo('home')" class="bg-brandRed hover:bg-red-700 text-white font-medium px-6 py-2.5 rounded-md text-sm transition">
+                        Return to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= CONTACT PAGE PLACEHOLDER ================= -->
+        <div id="page-contact" class="page-view py-16 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-8 flex items-center text-sm text-gray-400">
+                    <button onclick="navigateTo('home')" class="hover:text-white transition">Home</button>
+                    <span class="mx-2">/</span>
+                    <span class="text-brandRed font-medium">Contact</span>
+                </div>
+
+                <h1 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mb-4">Contact Us Page</h1>
+                <p class="text-gray-400 max-w-xl mb-12">
+                    Get in touch with us for membership inquiries, table reservations, meal plans, or general questions.
+                </p>
+
+                <div class="bg-cardBg border border-dashed border-neutral-800 rounded-2xl p-12 text-center flex flex-col items-center justify-center min-h-[300px]">
+                    <div class="w-16 h-16 rounded-full bg-neutral-900 flex items-center justify-center text-brandRed text-2xl mb-4">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Get in Touch</h3>
+                    <p class="text-gray-400 max-w-md mb-6">Welcome to the Contact Page! Contact details, operating hours, and location maps will appear here.</p>
+                    <button onclick="navigateTo('home')" class="bg-brandRed hover:bg-red-700 text-white font-medium px-6 py-2.5 rounded-md text-sm transition">
+                        Return to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="w-full max-w-7xl mx-auto px-6 py-6 border-t border-neutral-900 flex flex-col sm:flex-row items-center justify-between text-sm text-gray-400 gap-4">
+        <div>
+            Open daily, 6 AM to 10 PM
+        </div>
+        <!-- Indicator dots -->
+        <div class="flex items-center space-x-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-white"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-gray-600"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-gray-600"></span>
+        </div>
+    </footer>
+
+    <!-- Single Page Navigation Script -->
+    <script>
+        function navigateTo(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-view');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // Show selected page
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+
+            // Update Navigation Buttons Style
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach(btn => {
+                btn.classList.remove('text-brandRed', 'font-semibold');
+                btn.classList.add('text-gray-400');
+            });
+
+            const activeNav = document.getElementById('nav-' + pageId);
+            if (activeNav) {
+                activeNav.classList.remove('text-gray-400');
+                activeNav.classList.add('text-brandRed', 'font-semibold');
+            }
+
+            // Scroll smoothly to top when switching pages
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Handle initial hash parameter if present
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.replace('#', '');
+            if (['home', 'menu', 'workouts', 'about', 'contact'].includes(hash)) {
+                navigateTo(hash);
+            }
+        });
+    </script>
+</body>
+</html>
